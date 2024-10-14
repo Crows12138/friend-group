@@ -1,7 +1,7 @@
 """An example of how to represent a group of acquaintances in Python."""
 
 # Your code to go here...
-
+import numpy as np
 my_group = [
     {"Yitian Xu": {"age": 23, "job": None, "connection": [{"Zicong Peng": "friend"}]}},
     [
@@ -38,3 +38,17 @@ for person in example_group:
     print(
         f"{person} is {example_group[person]["age"]}, a {example_group[person]["job"]} "
     )
+
+ages = []
+relation_number = []
+one_age = []
+for person in example_group:
+    ages.append(example_group[person]["age"])
+    if example_group[person]["connection"].value == "cousin" or "partner":
+        one_age.append(example_group[person]["age"])
+    relation_number.append(len(example_group[person]["connection"]))
+print(np.max(ages))
+print(np.mean(relation_number))
+
+print(example_group[person]["connection"].value)
+
